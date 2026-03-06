@@ -5,11 +5,8 @@ class NumMatrix:
         m = len(matrix[0])
         self.prefix = [[0] * (m + 1) for r in range(n+1)]
         for r in range(n):
-            curr = 0
             for c in range(m):
-                curr += matrix[r][c] 
-                above = self.prefix[r][c+1]
-                self.prefix[r+1][c+1] = curr + above 
+                self.prefix[r+1][c+1] += matrix[r][c] + self.prefix[r][c+1] + self.prefix[r+1][c] -self.prefix[r][c]  
         
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
         row1, col1 , row2, col2 = row1+1, col1+1 , row2+1, col2+1
