@@ -1,0 +1,22 @@
+class Solution:
+    def decodeString(self, s: str) -> str:
+        stack = []
+        for i in range(len(s)):
+            if s[i] != "]":
+                stack.append(s[i])
+            else:
+                temp = ""   
+                while stack[-1] != "[" :
+                    temp = stack.pop() + temp
+                stack.pop() 
+                
+                k = ""    
+                while stack and "0" <= stack[-1] <= "9":
+                    k = stack.pop() + k
+                stack.append(int(k) * temp)
+        return "".join(stack)
+
+
+        
+    
+
