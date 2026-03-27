@@ -6,15 +6,17 @@
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+        count = defaultdict(int)
+        count[0] = 1 
         
-        count = {0: 1} 
         def dfs(node, run):
             if node is None:
                 return 0
 
             run += node.val
             needed_sum = run - targetSum
-            total_paths = count.get(needed_sum, 0)
+            total_paths = count[needed_sum]
+
             if run in count:
                 count[run] += 1
             else:
