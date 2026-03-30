@@ -17,10 +17,11 @@ class Solution:
             return (helper(n-1,k)+ k ) % n
         return helper(n, k) + 1
 
-    # Recursively get the winner's index from the smaller circle (n-1 people)
-    # Then "shift" that index to match the current circle of size n
-    # - Add k to move forward k steps
-    # - Use modulo n to wrap around the circular structure
+        # Recursively get the winner's index from the smaller circle (n-1 people)
+        # Then "shift" that index to match the current circle of size n
+        # - Add k to move forward k steps
+        # - Use modulo n to wrap around the circular structure
+   
 
         
 
