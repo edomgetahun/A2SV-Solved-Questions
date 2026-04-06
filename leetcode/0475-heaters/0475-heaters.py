@@ -1,6 +1,7 @@
 class Solution:
     def findRadius(self, houses: List[int], heaters: List[int]) -> int:
         heaters.sort()
+        houses.sort()
         min_rad = float('-inf')
 
         def find_closest(heaters, house):
