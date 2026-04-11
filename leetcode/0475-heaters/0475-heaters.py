@@ -13,7 +13,7 @@ class Solution:
                 if heaters[mid] > house:
                     r = mid - 1
                 else:
-                    l = mid + 1
+                    l = mid + 1 
             return min_dis
          
         for house in houses:
