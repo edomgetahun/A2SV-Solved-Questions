@@ -7,11 +7,10 @@ class Solution:
                 res.append(curr[:])
                 return
             for num in nums:
-                if num in curr:
-                    continue
-                curr.append(num)
-                backtrack(curr)
-                curr.pop()
+                if num not in curr:
+                    curr.append(num)
+                    backtrack(curr)
+                    curr.pop()
                 
         backtrack([])
         return res
