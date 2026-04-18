@@ -3,8 +3,8 @@ class Solution:
         pos.sort()
         def checker(mid):
             put = 1
-            prev = pos[0] 
-            for i in range(1, len(pos)):
+            prev = pos[0] # when we start we assume the first ball is put at the first index and we try to find the next valid place
+            for i in range(1, len(pos)): 
                 if pos[i] - prev >= mid:
                     put += 1
                     prev = pos[i]
@@ -16,7 +16,7 @@ class Solution:
         l ,r = 0,  max(pos) - min(pos)
         ans = 0
         while l <= r:
-            mid = (l+r)//2  
+            mid = (l+r)//2  # mid is the candidate diff i can get
             if checker(mid) == True:
                 ans = mid 
                 l = mid + 1
