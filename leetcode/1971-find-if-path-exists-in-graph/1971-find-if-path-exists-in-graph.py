@@ -6,14 +6,33 @@ class Solution:
             graph[node2].append(node1)
         
         vis = set() 
-        def dfs(node, vis): # this code also return when the visted all
+        # def dfs(node, vis):         # this code also return when the visted all
+        #     if node == destination:
+        #         return True
+        #     vis.add(node)
+        #     for negh in graph[node]:
+        #         if negh not in vis:
+        #             found = dfs(negh, vis)
+        #             if found :
+        #                 return True
+        #     return False  
+        # return dfs(source, vis)
+        stack = [source]
+        while stack:
+            node = stack.pop()
             if node == destination:
                 return True
+            
+            if node in vis:
+                continue 
             vis.add(node)
             for negh in graph[node]:
                 if negh not in vis:
-                    found = dfs(negh, vis)
-                    if found :
-                        return True
-            return False  
-        return dfs(source, vis)
+                   stack.append(negh)
+        return False
+                
+
+
+
+
+
