@@ -12,19 +12,18 @@ class Solution:
             return False
        
         vis = [[False for i in range(m)] for _ in range(n)]
-        def dfs(board, vis , row, col):
+        def dfs(row, col):
             if not inbound(row, col) or vis[row][col] or board[row][col] == "X":
                 return 
             
             vis[row][col] = True
-            for row_cha, col_cha in dir:
-                next_row, next_col = row + row_cha , col + col_cha
-                dfs(board, vis, next_row, next_col)
+            for dr, dc in dir:
+                dfs(row + dr, col + dc)
         
         for i in range(n):
             for j in range(m):
                 if (i == 0 or j == 0 or i == n-1 or j == m-1) and board[i][j] == "O" :
-                    dfs(board, vis, i, j)
+                    dfs(i, j)
         for i in range(n):
             for j in range(m):
                 if board[i][j] == "O" and vis[i][j] == False:
