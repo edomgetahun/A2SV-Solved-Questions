@@ -19,11 +19,24 @@ class Solution:
                 if not vis[negh]:
                     total += dfs(negh, vis)
             return total
+        
         res = 0
         for i in range(n):
             vis = [False] * n
             res = max(res, dfs(i, vis))
         return res
+
+        # def dfs(i, vis):
+        #     vis.add(i)
+        #     for negh in graph[i]:
+        #         if negh not in vis:
+        #             dfs(negh, vis)
+        # res = 0
+        # for i in range(n):
+        #     vis = set()
+        #     dfs(i, vis)
+        #     res = max(res, len(vis))
+        # return res
 
 
 
